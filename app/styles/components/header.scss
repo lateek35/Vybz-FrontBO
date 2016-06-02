@@ -1,0 +1,60 @@
+#header {
+	height: 100px;
+	width: calc( 100% - 228px );
+	padding-left: 50px;
+	background-color: $white;
+	border-bottom: 1px solid #CCC;
+	position: absolute;
+	top: 0;
+	right: 0;
+	box-sizing: border-box;
+	.profil{
+		position: relative;
+	    top: 50%;
+	    transform: translateY(-50%);
+		width: 64px;
+		height: 64px;
+		display: inline-block;
+		overflow: hidden;
+		border: 2px solid #DDD;
+		border-radius: 50%;
+		cursor: pointer;
+		transition: border .8s ease;
+		&:hover{
+			border: 2px solid #AAA;
+		}
+		img{
+			width: 100%;
+		}
+	}
+	.user-name{
+		display: inline-block;
+		height: 100%;
+		line-height: 100px;
+		vertical-align: top;
+		padding-left: 20px;
+		color: $clubColor;
+		font-family: 'proxima';
+	}
+
+	.btn-header{
+		float: right;
+		width: 100px;
+		height: 100%;
+		position: relative;
+		border-left: 1px solid #CCC;
+		[class*="sprite-"] {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			opacity: 0.25;
+			transition: opacity .8s;
+		}
+		&:hover{
+			[class*="sprite-"] {
+				opacity: 1;
+			}
+		}
+	}
+}

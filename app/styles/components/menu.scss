@@ -1,0 +1,39 @@
+#menu{
+	font-family: 'proxima';
+	font-weight: 600;
+	background-color: $clubColor;
+	width: 228px;
+	height: 100vh;
+	#logo-space{
+		height: 100px;
+	}
+	ul.menu-items{
+		li{
+			padding-left: 40px;
+			height: 75px;
+			color: rgba(0, 0, 0, 0.40);
+			cursor: pointer;
+			.icon{
+				width: 36px;
+				display: inline-block;
+				height: 100%;
+				>div{
+					position: relative;
+					top: 50%;
+					transform: translateY(-50%);
+				}
+			}
+			span{
+    			display: inline-block;
+				vertical-align: top;
+				height: 100%;
+				line-height: 75px;
+				font-size: 16px;
+			}
+			&.selected{
+				color : white;
+				background-color: darken($clubColor, 10%);
+			}
+		}
+	}
+}
