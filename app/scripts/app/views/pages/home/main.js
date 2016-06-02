@@ -5,7 +5,7 @@ template   = require('./template.hbs');
 
 module.exports = Backbone.View.extend({
 
-	el: 'body',
+	el: '#content',
 
 	initialize: function(){
 		this.render();

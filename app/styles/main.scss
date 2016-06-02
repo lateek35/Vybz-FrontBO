@@ -1,2 +1,16 @@
-@import 'globals/reset.scss'
+//BASE
 
+//GLOBALS
+@import 'globals/reset.scss';
+@import 'globals/vars.scss';
+@import 'globals/fonts.scss';
+
+//PAGES
+@import 'pages/statistique.scss';
+
+//COMPONENTS
+@import 'components/sprite.scss';
+@include retina-sprites($retina-groups);
+
+@import 'components/header.scss';
+@import 'components/menu.scss';

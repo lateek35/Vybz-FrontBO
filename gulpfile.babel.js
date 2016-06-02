@@ -7,6 +7,36 @@ import {stream as wiredep} from 'wiredep';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
+const spritesmith = require('gulp.spritesmith');
+const buffer = require('vinyl-buffer');
+const merge = require('merge-stream');
+
+gulp.task('sprite', function(cb) {
+    var spriteData = gulp.src('app/images/sprites/**/*.png')
+        .pipe(spritesmith({
+            retinaSrcFilter: ['app/images/sprites/**/*@2x.png'],
+            imgName: 'sprite.png',
+            retinaImgName: 'sprite@2x.png',
+            imgPath: '../images/sprite.png',
+            retinaImgPath: '../images/sprite@2x.png',
+            cssName: 'sprite.scss',
+            padding: 5,
+            cssVarMap: (sprite) => {
+                sprite.name = 'sprite-' + sprite.name;
+            }
+        }));
+
+    var imgStream = spriteData.img
+        .pipe(buffer())
+        .pipe($.imagemin())
+        .pipe(gulp.dest('app/images/'));
+
+    var cssStream = spriteData.css
+        .pipe(gulp.dest('app/styles/components/'));
+
+    return merge(imgStream, cssStream);
+});
+
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
@@ -112,7 +142,7 @@ gulp.task('browser-sync', function() {
     // Inject CSS changes
     injectChanges: true,
     ghost: false,
-    open:true
+    open:false
   });
 });
 
@@ -122,8 +152,9 @@ gulp.task('clean', del.bind(null, ['dist']));
 
 gulp.task('default', ['html', 'styles', 'scripts', 'images', 'fonts', 'extras','browser-sync'], () => {
   gulp.watch('app/images/**/*', ['images']); 
+  gulp.watch('app/index.html', ['extras']); 
   gulp.watch('app/styles/**/*.scss', ['styles']);
-  gulp.watch('app/scripts/**/*.js', ['scripts', browserSync.reload]);
+  gulp.watch('app/scripts/**/*', ['scripts', browserSync.reload]);
  });
 
 // gulp.task('build', ['lint', 'html', 'scripts', 'images', 'fonts', 'extras'], () => {
