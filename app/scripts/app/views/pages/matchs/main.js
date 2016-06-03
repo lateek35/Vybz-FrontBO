@@ -6,21 +6,29 @@ template   = require('./template.hbs');
 module.exports = Backbone.View.extend({
 
 	el: '#content',
+	months : '.months li',
 
 	initialize: function(){
-		this.bindEvent();
 	},
 
 	bindEvent: function(){
+		$(this.months).on('click', this.toggleMenu.bind(this) );
 
 	},
 
 	unbindEvents: function(){
+		$(this.months).off('click', this.toggleMenu.bind(this) );
+	},
 
+	toggleMenu: function(e){
+		var target = e.currentTarget;
+		this.$el.find('.selected').toggleClass('selected', false);
+		$(target).toggleClass('selected', true);
 	},
 
 	render: function(){
 		this.$el.html( template({tpl : 'MATCHS'}) );
+		this.bindEvent();
 	},
 
 	remove: function(){
@@ -29,3 +37,4 @@ module.exports = Backbone.View.extend({
       	return this;
 	}
 });
+	

@@ -6,7 +6,7 @@ template   = require('./template.hbs');
 module.exports = Backbone.View.extend({
 
 	el: '#menu',
-	li: 'li',
+	li: '#menu li',
 
 	initialize: function(){
 		this.render();

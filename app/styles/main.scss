@@ -8,8 +8,11 @@
 
 //PAGES
 @import 'pages/statistique.scss';
+@import 'pages/matchs.scss';
 
 //COMPONENTS
+@import 'components/common.scss';
+
 @import 'components/sprite.scss';
 @include retina-sprites($retina-groups);
 

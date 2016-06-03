@@ -4,7 +4,6 @@
 	left: 0;
 	width: $menuWidth;
 	height: 100vh;
-	font-family: 'proxima';
 	font-weight: 600;
 	background-color: $clubColor;
 	#logo-space{
@@ -41,6 +40,7 @@
 				height: 100%;
 				line-height: 75px;
 				font-size: 16px;
+				font-weight: 800;
 				color: rgba(0, 0, 0, 0.40);
 			}
 			&.selected{
