@@ -3,7 +3,11 @@ Backbone   = require('backbone'),
 Handlebars = require('handlebars');
 
 
-var HomeView = require('../views/pages/home/main');
+var StatsView = require('../views/pages/stats/main'),
+	MatchsView = require('../views/pages/matchs/main'),
+	ParisView = require('../views/pages/paris/main'),
+	PublicationsView = require('../views/pages/publications/main'),
+	PromotionsView = require('../views/pages/promotions/main');
 
 
 module.exports = Backbone.Router.extend({
@@ -25,16 +29,47 @@ module.exports = Backbone.Router.extend({
 	},
 
 	routes: {
-		'' : 'home'
+		'' : 'stats',
+		'statistiques(/)' : 'statistiques',
+		'matchs(/)' : 'matchs',
+		'paris(/)' : 'paris',
+		'publications(/)' : 'publications',
+		'promotions(/)' : 'promotions'
 	},
 
-	home: function() {
-		console.info('ROUTER -----> HOME');
-		this.loadView( new HomeView() );
+	statistiques: function() {
+		console.info('ROUTER -----> STATISTIQUES');
+
+		this.loadView( new StatsView() );
+	},
+
+	matchs: function() {
+		console.info('ROUTER -----> MATCHS');
+
+		this.loadView( new MatchsView() );
+	},
+
+	paris: function() {
+		console.info('ROUTER -----> PARIS');
+
+		this.loadView( new ParisView() );
+	},
+
+	publications: function() {
+		console.info('ROUTER -----> PUBLICATIONS');
+
+		this.loadView( new PublicationsView() );
+	},
+
+	promotions: function() {
+		console.info('ROUTER -----> PROMOTIONS');
+
+		this.loadView( new PromotionsView() );
 	},
 	
 	loadView : function(view) {
 		this.view && this.view.remove();
 		this.view = view;
+		this.view.render();
 	}
 });

@@ -1,9 +1,10 @@
-//BASE
-
 //GLOBALS
 @import 'globals/reset.scss';
 @import 'globals/vars.scss';
 @import 'globals/fonts.scss';
+
+//BASE
+@import 'base/structure.scss';
 
 //PAGES
 @import 'pages/statistique.scss';

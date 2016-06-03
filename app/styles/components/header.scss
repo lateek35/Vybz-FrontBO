@@ -1,6 +1,6 @@
 #header {
-	height: 100px;
-	width: calc( 100% - 228px );
+	height: $headerHeight;
+	width: calc( 100% - #{$menuWidth} );
 	padding-left: 50px;
 	background-color: $white;
 	border-bottom: 1px solid #CCC;
