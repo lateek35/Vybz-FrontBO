@@ -8,6 +8,7 @@ module.exports = Backbone.View.extend({
 	el: '#header',
 
 	initialize: function(){
+		console.log('init le header');
 		this.render();
 	},
 

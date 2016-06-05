@@ -9,6 +9,7 @@ module.exports = Backbone.View.extend({
 	li: '#menu li',
 
 	initialize: function(){
+		console.log('init le menu');
 		this.render();
 		this.addEvent();
 		this.removeEvent();

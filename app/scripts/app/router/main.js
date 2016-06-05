@@ -5,6 +5,8 @@ Handlebars = require('handlebars');
 
 var StatsView = require('../views/pages/stats/main'),
 	MatchsView = require('../views/pages/matchs/main'),
+	MatchsDetailView = require('../views/pages/matchsDetail/main'),
+	MatchsEditView = require('../views/pages/matchsEdit/main'),
 	ParisView = require('../views/pages/paris/main'),
 	PublicationsView = require('../views/pages/publications/main'),
 	PromotionsView = require('../views/pages/promotions/main');
@@ -29,9 +31,11 @@ module.exports = Backbone.Router.extend({
 	},
 
 	routes: {
-		'' : 'stats',
+		'' : 'statistiques',
 		'statistiques(/)' : 'statistiques',
 		'matchs(/)' : 'matchs',
+		'matchs/:id(/)' : 'matchsDetail',
+		'matchs/:id(/)/edit' : 'matchsEdit',
 		'paris(/)' : 'paris',
 		'publications(/)' : 'publications',
 		'promotions(/)' : 'promotions'
@@ -47,6 +51,18 @@ module.exports = Backbone.Router.extend({
 		console.info('ROUTER -----> MATCHS');
 
 		this.loadView( new MatchsView() );
+	},
+
+	matchsDetail: function(id) {
+		console.info('ROUTER -----> MATCHSDETAIL',id);
+
+		this.loadView( new MatchsDetailView() );
+	},
+
+	matchsEdit: function(id) {
+		console.info('ROUTER -----> MATCHSEDIT',id);
+
+		this.loadView( new MatchsEditView() );
 	},
 
 	paris: function() {
