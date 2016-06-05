@@ -1,0 +1,52 @@
+h1{
+	font-size: 30px;
+	color: $clubColor;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+h2{
+	font-size: 18px;
+	color: #333333;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+h3{
+	font-size: 14px;
+	color: #a6a6a6;
+	padding-bottom: 28px;
+}
+
+.btn{
+	width: 200px;
+	height: 60px;
+	border: 2px solid $clubColor;
+	color: $clubColor;
+	text-align: center;
+	text-transform : uppercase;
+	border-radius: 100px;
+	line-height: 60px;
+	vertical-align: middle;
+	cursor: pointer;
+	&:hover{
+		background-color: $clubColor;
+		color: $white;
+	}
+}
+
+.small-btn {
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	position: relative;
+	&.red{
+		background-color: #ff3131;
+	}
+	&.green{
+		background-color: #007a35;
+	}
+}
+
+.padder{
+	padding: 50px;
+}
