@@ -49,4 +49,10 @@ h3{
 
 .padder{
 	padding: 50px;
+	&.no-bottom{
+		padding-bottom: 0;
+	}
+	&.no-top{
+		padding-top: 0;
+	}
 }
