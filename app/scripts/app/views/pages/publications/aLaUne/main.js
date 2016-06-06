@@ -11,7 +11,9 @@ module.exports = Backbone.View.extend({
 
 	events: {
 	    'click .add-account': 'showModal',
-	    'click .add-account-validate' : 'validModal'
+	    'click .add-account-validate' : 'validModal',
+	    'click .add-new' : 'validModal',
+	    'click .middle' : 'clickOutside'
 	 },
 
 	initialize: function(){
@@ -25,12 +27,15 @@ module.exports = Backbone.View.extend({
 
 	},
 
+	clickOutside: function(e){
+		e.stopPropagation();
+	},
+
 	showModal: function(){
 	 	Tweenlite.to( this.modal, 0.8, { autoAlpha : 1 });
 	},
 
 	validModal: function(){
-		console.log('ioazizahei');
 	 	Tweenlite.to( this.modal, 0.8, { autoAlpha : 0 });
 	},
 
