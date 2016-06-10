@@ -1,8 +1,18 @@
 #publications{
+
+	padding-top: 100px;
+
+
+
+
 	.tabs{
+		top: 100px;
+	    position: fixed;
+		z-index: 9;
+	    width: calc( 100% - 228px);
 		height: 82px;
-		width: 100%;
 		border-bottom: 1px solid #e5e5e5;
+		background-color: #FFF;
 		.tab{
 			width: 50%;
 			height: 100%;
@@ -20,174 +30,226 @@
 			}
 		}
 	}
-	.add-container{
-		height: 140px;
-		width: 100%;
-		position: relative;
-	}
-	h2.subtitle {
-	    font-size: 18px;
-	    font-weight: 800;
-	    color: #007a35;
-	    text-transform: uppercase;
-	    line-height: 140px;
-	    vertical-align: top;
-	    color: $black;
-	}
-	.btn-add{
-		position: absolute;
-	    right: 0;
-	    top: 50%;
-	    transform: translateY(-50%);
-	}
 
 
-	.social-network {
-		margin-top: 20px;
-		>div, >p{
-			display: inline-block;
-			vertical-align: bottom;
-			margin-right: 10px;
-		}
-		>p{
-			text-transform : uppercase;
-			font-weight: bold;
-		}
-		.count{
-			float: right;
-			color: $red;
-		}
-	}
 
 
-	ul.list-match{
-		li{
-			position: relative;
-			height: 90px;
-			padding: 0 50px 0 50px;
-			&:nth-child(odd){
-				background-color: #f2f2f2;
+
+	#alaune{
+		.social-network {
+			margin-top: 20px;
+			>div, >p{
+				display: inline-block;
+				vertical-align: bottom;
+				margin-right: 10px;
+			}
+			>p{
+				text-transform : uppercase;
+				font-weight: bold;
+			}
+			.count{
+				float: right;
+				color: $red;
 			}
 		}
-		.name {
-			padding-left: 10px;
-			font-size: 16px;
-			display: inline-block;
-			height: 100%;
-			line-height: 93px;
-			vertical-align: middle;
-			text-transform : uppercase;
-		}
-		.last-publication {
-			position: absolute;
-			left: 25%;
-			right: 25%;
-			top: 0;
-			bottom: 0;
-			p{
-				line-height: 90px;
-				text-align: center;
-				font-size: 16px;
-				color: #cccccc;
-				text-transform: uppercase;
-				font-weight: bold;
-				span{
-					color: $clubColor;
-					padding-left: 1px;
+
+
+		ul.list-match{
+			li{
+				position: relative;
+				height: 90px;
+				padding: 0 50px 0 50px;
+				&:nth-child(odd){
+					background-color: #f2f2f2;
 				}
 			}
+			.name {
+				padding-left: 10px;
+				font-size: 16px;
+				display: inline-block;
+				height: 100%;
+				line-height: 93px;
+				vertical-align: middle;
+				text-transform : uppercase;
+			}
+			.last-publication {
+				position: absolute;
+				left: 25%;
+				right: 25%;
+				top: 0;
+				bottom: 0;
+				p{
+					line-height: 90px;
+					text-align: center;
+					font-size: 16px;
+					color: #cccccc;
+					text-transform: uppercase;
+					font-weight: bold;
+					span{
+						color: $clubColor;
+						padding-left: 1px;
+					}
+				}
+			}
+			.logo {
+				display: inline-block;
+				vertical-align: middle;
+			}
+
+			.actions{
+				>div{
+					display: inline-block;
+					margin-left: 10px;
+				}
+				a > div{
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+				position: absolute;
+				right: 54px;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+			.edit > a {
+			    display: block;
+			    width: 100%;
+			    height: 100%;
+			}
+
 		}
-		.logo {
-			display: inline-block;
-			vertical-align: middle;
+		.instagram{
+			color: $instagram;
+		}
+		.twitter{
+			color: $twitter;
+		}
+		.facebook{
+			color: $facebook;
 		}
 
-		.actions{
-			>div{
-				display: inline-block;
-				margin-left: 10px;
-			}
-			a > div{
+
+		.add-new{
+			visibility: hidden;
+			opacity: 0;
+			position: fixed;
+			z-index: 11;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.7);
+			.middle{
 				position: absolute;
 				top: 50%;
 				left: 50%;
 				transform: translate(-50%, -50%);
+				width: 90%;
+				max-width: 620px;
+				.top{
+					height: 93px;
+					line-height: 93px;
+					width: 100%;
+					background-color: $clubColor;
+					color: $white;
+					text-transform: uppercase;
+					text-align: center;
+				}
+				.content{
+					height: 560px;
+					background-color: white;
+				}
+				h3{
+					margin-top: 30px;
+					text-transform: uppercase;
+					font-weight: bold;
+				}
+				input, select{
+					appearance: none;
+					display: block;
+					width: 100%;
+					border: 1px solid #CCC;
+					border-radius: inherit;
+					height: 80px;
+					line-height: 80px;
+					background-color: $white;
+					color: black;
+					font-size: 14px;
+					padding: 0 10px;
+				}
+				.btn{
+					width: 100%;
+					margin-top: 72px;
+				}
 			}
-			position: absolute;
-			right: 54px;
-			top: 50%;
-			transform: translateY(-50%);
 		}
-		.edit > a {
-		    display: block;
-		    width: 100%;
-		    height: 100%;
+	}
+
+
+
+
+
+	#coin-des-supporter{
+		position: relative;
+		.subtitle{
+			padding: 60px 0;
+			h2{
+				float: left;
+			}
+			p{
+				float: right;
+				color: $red;
+			}
 		}
-
-	}
-	.instagram{
-		color: $instagram;
-	}
-	.twitter{
-		color: $twitter;
-	}
-	.facebook{
-		color: $facebook;
-	}
-
-
-	.add-new{
-		visibility: hidden;
-		opacity: 0;
-		position: fixed;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background-color: rgba(0,0,0,0.7);
-		.middle{
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			width: 90%;
-			max-width: 620px;
-			.top{
-				height: 93px;
-				line-height: 93px;
+		.item{
+			overflow: hidden;
+			margin-bottom: 30px;
+			width: 300px;
+			&.small-item{
+				.img-item {
+					height: 190px;
+				}
+			}
+			&.high-item{
+				.img-item {
+					height: 520px;
+				}
+			}
+			// &.large-item{
+			// 	width: 630px;
+			// 	.img-item {
+			// 		height: 190px;
+			// 	}
+			// }
+			.img-item {
 				width: 100%;
-				background-color: $clubColor;
-				color: $white;
-				text-transform: uppercase;
-				text-align: center;
+				background-position: center;
+				background-size: cover;
 			}
-			.content{
-				height: 560px;
-				background-color: white;
+			.command{
+				height: 110px;
+				position: relative;
+				p{
+					line-height: 110px;				
+				}
 			}
-			h3{
-				margin-top: 30px;
-				text-transform: uppercase;
-				font-weight: bold;
-			}
-			input, select{
-				appearance: none;
-				display: block;
-				width: 100%;
-				border: 1px solid #CCC;
-				border-radius: inherit;
-				height: 80px;
-				line-height: 80px;
-				background-color: $white;
-				color: black;
-				font-size: 14px;
-				padding: 0 10px;
-			}
-			.btn{
-				width: 100%;
-				margin-top: 72px;
+			.actions{
+				position: absolute;
+				top: 50%;
+				right: 0;
+				transform: translateY(-50%);
+				>div{
+					display: inline-block;
+					> div{
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						transform: translate(-50%, -50%);
+					}
+				}
 			}
 		}
 	}

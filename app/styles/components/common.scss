@@ -12,7 +12,7 @@ h2{
 }
 h3{
 	font-size: 14px;
-	color: #a6a6a6;
+	color: $light-grey;
 	padding-bottom: 28px;
 }
 
@@ -40,10 +40,16 @@ h3{
 	cursor: pointer;
 	position: relative;
 	&.red{
-		background-color: #ff3131;
+		background-color: $red;
+	}
+	&.red-cercled{
+		border: 2px solid $red;
 	}
 	&.green{
-		background-color: #007a35;
+		background-color: $green;
+	}
+	&.green-cercled{
+		border: 2px solid $green;
 	}
 }
 
@@ -54,5 +60,26 @@ h3{
 	}
 	&.no-top{
 		padding-top: 0;
+	}
+}
+
+.add-container{
+	height: 140px;
+	width: 100%;
+	position: relative;
+	h2.subtitle {
+	    font-size: 18px;
+	    font-weight: 800;
+	    color: #007a35;
+	    text-transform: uppercase;
+	    line-height: 140px;
+	    vertical-align: top;
+	    color: $black;
+	}
+	.btn-add{
+		position: absolute;
+	    right: 0;
+	    top: 50%;
+	    transform: translateY(-50%);
 	}
 }

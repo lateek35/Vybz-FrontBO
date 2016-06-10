@@ -1,13 +1,16 @@
 var $      = require('jquery'),
 Handlebars = require('handlebars'),
 Backbone   = require('backbone'),
-template   = require('./template.hbs');
+template   = require('./template.hbs'),
+gsap       = require('gsap');
+
 
 module.exports = Backbone.View.extend({
 
 	el: '#content',
 
 	initialize: function(){
+		console.log(gsap);
 		this.bindEvent();
 	},
 
