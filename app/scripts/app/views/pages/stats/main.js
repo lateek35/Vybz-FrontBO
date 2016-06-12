@@ -95,9 +95,10 @@ module.exports = Backbone.View.extend({
 		this.$el.html( template({tpl : 'STATISTIQUE'}) );
 		this.createCharts();
 	},
-
+	
 	remove: function(){
-		this.$el.empty().off(); /* off to unbind the events */
+		this.$el.empty(); /* off to unbind the events */
+		this.undelegateEvents();
       	this.stopListening();
       	return this;
 	}
