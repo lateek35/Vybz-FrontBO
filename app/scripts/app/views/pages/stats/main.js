@@ -10,7 +10,6 @@ module.exports = Backbone.View.extend({
 	el: '#content',
 
 	initialize: function(){
-		console.log(Chart);
 		this.bindEvent();
 	},
 
@@ -23,7 +22,8 @@ module.exports = Backbone.View.extend({
 	},
 
 	createCharts: function(){
-		var ctx = $("#myChart");
+		//Create the line chart
+		var ctx = $("#myLineChart");
 		new Chart(ctx, {
 		    type: 'line',
 		    label: '',
@@ -89,15 +89,63 @@ module.exports = Backbone.View.extend({
 
 		    return ret;
 		};
+
+
+
+		//Create the pie chart
+		// For a pie chart
+		var ctx = $("#myPieChart");
+		new Chart(ctx,{
+		    type: 'pie',
+		    data: {
+			    labels: [
+			        "4h - 8h",
+			        "8h - 12h",
+			        "12h - 16h",
+			        "16h - 20h",
+			        "20h - 00h",
+			        "0h - 4h",
+			    ],
+			    datasets: [
+			        {
+			            data: [25, 8, 17, 25, 12.5,12.5],
+			            borderWidth: 0,
+			            backgroundColor: [
+			                "#9fd8e0",
+			                "#004e7a",
+			                "#8090f3",
+			                "#f3cc80",
+			                "#fb6969",
+			                "#007a35",
+			            ],
+			            hoverBackgroundColor: [
+			                "#9fd8e0",
+			                "#004e7a",
+			                "#8090f3",
+			                "#f3cc80",
+			                "#fb6969",
+			                "#007a35",
+			            ]
+			        }]
+			},
+		    options: {
+		    	maintainAspectRatio: false,
+		    	responsive: true,
+		    	legend: {
+                    display: false,
+                }
+			}
+		});
 	},
 
 	render: function(){
 		this.$el.html( template({tpl : 'STATISTIQUE'}) );
 		this.createCharts();
 	},
-
+	
 	remove: function(){
-		this.$el.empty().off(); /* off to unbind the events */
+		this.$el.empty(); /* off to unbind the events */
+		this.undelegateEvents();
       	this.stopListening();
       	return this;
 	}

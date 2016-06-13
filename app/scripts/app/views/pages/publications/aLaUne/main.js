@@ -36,6 +36,7 @@ module.exports = Backbone.View.extend({
 	},
 
 	validModal: function(){
+		$(this.modal).find('input').val('');
 	 	Tweenlite.to( this.modal, 0.8, { autoAlpha : 0 });
 	},
 
@@ -45,7 +46,8 @@ module.exports = Backbone.View.extend({
 	},
 
 	remove: function(){
-		this.$el.empty().off(); /* off to unbind the events */
+		this.$el.empty(); /* off to unbind the events */
+		this.undelegateEvents();
       	this.stopListening();
       	return this;
 	}
