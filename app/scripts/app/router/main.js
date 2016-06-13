@@ -10,7 +10,8 @@ var StatsView = require('../views/pages/stats/main'),
 	ParisView = require('../views/pages/paris/main'),
 	PublicationsView = require('../views/pages/publications/main'),
 	PromotionsView = require('../views/pages/promotions/main'),
-	PlayersListView = require('../views/pages/playersList/main');
+	PlayersListView = require('../views/pages/playersList/main'),
+	PlayerSingleView = require('../views/pages/playerSingle/main');
 
 
 module.exports = Backbone.Router.extend({
@@ -41,6 +42,7 @@ module.exports = Backbone.Router.extend({
 		'publications(/)' : 'publications',
 		'promotions(/)' : 'promotions',
 		'player(/)' : 'playersList',
+		'player/:id' : 'playerSingle',
 	},
 
 	statistiques: function() {
@@ -89,6 +91,12 @@ module.exports = Backbone.Router.extend({
 		console.info('ROUTER -----> PLAYERSLIST');
 
 		this.loadView( new PlayersListView() );
+	},
+
+	playerSingle: function(){
+		console.info('ROUTER -----> PLAYERSINGLE');
+
+		this.loadView( new PlayerSingleView() );
 	},
 	
 	loadView : function(view) {

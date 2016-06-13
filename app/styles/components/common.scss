@@ -61,6 +61,12 @@ h3{
 	&.no-top{
 		padding-top: 0;
 	}
+	&.no-right{
+		padding-right: 0;
+	}
+	&.no-left{
+		padding-left: 0;
+	}
 }
 
 .add-container{
@@ -164,4 +170,52 @@ h3{
 			}
 		}
 	}
+}
+
+
+.line-bar{
+	height: 48px;
+	position: relative;
+	span{
+		vertical-align: middle;
+		font-size: 14px;
+		font-weight: bold;
+		text-transform: uppercase;
+		color: $clubColor;
+		float: left;
+	}
+	.total{
+		vertical-align: middle;
+		float: right;
+		font-size: 18px;
+		font-weight: bold;
+	}
+	.line {
+		width: 75%;
+		background-color: $light-grey;
+		height: 6px;
+		border-radius: 3px;
+		overflow: hidden;
+		position: absolute;
+		top: 5px;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		.cursor{
+			height: 100%;
+			border-radius: inherit;
+			background: linear-gradient(to right, lighten($clubColor, 20%) , $clubColor);
+		}
+	}
+}
+
+
+.two-third{
+	display: inline-block;
+	width: 66.6666%;
+}
+.one-third{
+	width: 33.3333%;
+	display: inline-block;
+	vertical-align: top;
 }
