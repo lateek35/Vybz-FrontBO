@@ -8,12 +8,15 @@ module.exports = Backbone.View.extend({
 	el: '#content',
 	months : '.months li',
 
-	initialize: function(){
+	initialize: function(options){
+		this.EA = options.EA;
+		setTimeout(function(){
+			console.log(this.EA.reqres.request("get:ownteam"));
+		}.bind(this),1000)
 	},
 
 	bindEvent: function(){
 		$(this.months).on('click', this.toggleMenu.bind(this) );
-
 	},
 
 	unbindEvents: function(){

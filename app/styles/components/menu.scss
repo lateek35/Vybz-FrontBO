@@ -23,16 +23,14 @@
 			    left: 0;
 				padding-left: 40px;
 			}
-			.icon{
-				width: 36px;
-				display: inline-block;
-				height: 100%;
-				opacity: 0.40;
-				>div{
-					position: relative;
-					top: 50%;
-					transform: translateY(-50%);
-				}
+			.icon-container{
+			    width: 36px;
+			    display: inline-block;
+			    line-height: 75px;
+			    height: 100%;
+			    .icon{
+			    	color: darken( $clubColor, 10% );
+			    }
 			}
 			span{
     			display: inline-block;
@@ -44,11 +42,13 @@
 				color: rgba(0, 0, 0, 0.40);
 			}
 			&.selected{
+				.icon-container{
+				    .icon{
+				    	color: $clubColor;
+				    }
+				}
 				span{
 					color : rgba(255, 255, 255, 1);
-				}
-				.icon{
-					opacity: 1;
 				}
 				background-color: darken($clubColor, 10%);
 			}

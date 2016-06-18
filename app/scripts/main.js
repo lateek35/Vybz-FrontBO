@@ -4,6 +4,7 @@ var app  = {},
 $        = require('jquery'),
 Backbone = require('backbone'),
 _        = require('lodash'),
+BackboneWreqr = require('Backbone.Wreqr'),
 Handlebars = require('handlebars');
 
 
@@ -14,8 +15,15 @@ var Router = require('./app/router/main');
 $(function () {
 	'use strict';
 
-	app.Router = new Router();
+	var EA = {
+		vent : new BackboneWreqr.EventAggregator(),
+		commands : new BackboneWreqr.Commands(),
+		reqres : new Backbone.Wreqr.RequestResponse()
+	}
 
-	app.AppView = new AppView();
+	app.AppView = new AppView({ EA : EA });
+	
+	app.Router = new Router({ EA : EA });
+
 
 });

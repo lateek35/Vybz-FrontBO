@@ -3,6 +3,9 @@
 @import 'globals/vars.scss';
 @import 'globals/fonts.scss';
 
+//FONTS
+@import 'fonts/icons.scss';
+
 //BASE
 @import 'base/structure.scss';
 
@@ -14,9 +17,12 @@
 @import 'pages/paris.scss';
 @import 'pages/playersList.scss';
 @import 'pages/playerSingle.scss';
+@import 'pages/promotions.scss';
+@import 'pages/pubs.scss';
 
 //COMPONENTS
 @import 'components/common.scss';
+@import 'components/pikaday.scss';
 
 @import 'components/sprite.scss';
 @include retina-sprites($retina-groups);

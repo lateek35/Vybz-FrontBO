@@ -11,12 +11,14 @@ var StatsView = require('../views/pages/stats/main'),
 	PublicationsView = require('../views/pages/publications/main'),
 	PromotionsView = require('../views/pages/promotions/main'),
 	PlayersListView = require('../views/pages/playersList/main'),
-	PlayerSingleView = require('../views/pages/playerSingle/main');
+	PlayerSingleView = require('../views/pages/playerSingle/main'),
+	PublicitesView = require('../views/pages/publicites/main');
 
 
 module.exports = Backbone.Router.extend({
 
-	initialize: function(){
+	initialize: function(options){
+		this.EA = options.EA;
 		Backbone.history.start({pushState: true, hashChange: false});
 
 		$(document).on("click", "a:not([data-bypass])", function(evt) {
@@ -41,6 +43,7 @@ module.exports = Backbone.Router.extend({
 		'paris(/)' : 'paris',
 		'publications(/)' : 'publications',
 		'promotions(/)' : 'promotions',
+		'publicites(/)' : 'publicites',
 		'player(/)' : 'playersList',
 		'player/:id' : 'playerSingle',
 	},
@@ -48,55 +51,61 @@ module.exports = Backbone.Router.extend({
 	statistiques: function() {
 		console.info('ROUTER -----> STATISTIQUES');
 
-		this.loadView( new StatsView() );
+		this.loadView( new StatsView({ EA: this.EA }) );
 	},
 
 	matchs: function() {
 		console.info('ROUTER -----> MATCHS');
 
-		this.loadView( new MatchsView() );
+		this.loadView( new MatchsView({ EA: this.EA }) );
 	},
 
 	matchsDetail: function(id) {
 		console.info('ROUTER -----> MATCHSDETAIL',id);
 
-		this.loadView( new MatchsDetailView() );
+		this.loadView( new MatchsDetailView({ EA: this.EA }) );
 	},
 
 	matchsEdit: function(id) {
 		console.info('ROUTER -----> MATCHSEDIT',id);
 
-		this.loadView( new MatchsEditView() );
+		this.loadView( new MatchsEditView({ EA: this.EA }) );
 	},
 
 	paris: function() {
 		console.info('ROUTER -----> PARIS');
 
-		this.loadView( new ParisView() );
+		this.loadView( new ParisView({ EA: this.EA }) );
 	},
 
 	publications: function() {
 		console.info('ROUTER -----> PUBLICATIONS');
 
-		this.loadView( new PublicationsView() );
+		this.loadView( new PublicationsView({ EA: this.EA }) );
 	},
 
 	promotions: function() {
 		console.info('ROUTER -----> PROMOTIONS');
 
-		this.loadView( new PromotionsView() );
+		this.loadView( new PromotionsView({ EA: this.EA }) );
+	},
+
+	publicites: function() {
+		console.info('ROUTER -----> PUBLICITES');
+
+		this.loadView( new PublicitesView({ EA: this.EA }) );
 	},
 
 	playersList: function() {
 		console.info('ROUTER -----> PLAYERSLIST');
 
-		this.loadView( new PlayersListView() );
+		this.loadView( new PlayersListView({ EA: this.EA }) );
 	},
 
 	playerSingle: function(){
 		console.info('ROUTER -----> PLAYERSINGLE');
 
-		this.loadView( new PlayerSingleView() );
+		this.loadView( new PlayerSingleView({ EA: this.EA }) );
 	},
 	
 	loadView : function(view) {

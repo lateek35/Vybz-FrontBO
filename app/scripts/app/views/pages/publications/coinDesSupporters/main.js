@@ -11,7 +11,6 @@ module.exports = Backbone.View.extend({
 
 	initialize: function(){
 		this.render();
-		console.log($.fn.masonry);
 	},
 
 	bindEvent: function(){

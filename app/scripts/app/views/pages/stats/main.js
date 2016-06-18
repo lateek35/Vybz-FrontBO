@@ -76,7 +76,6 @@ module.exports = Backbone.View.extend({
 		var parentEventHandler = Chart.Controller.prototype.eventHandler;
 		Chart.Controller.prototype.eventHandler = function() {
 		    var ret = parentEventHandler.apply(this, arguments);
-		    console.log(this.chart.ctx.canvas.height);
 		    // Draw the vertical line here
 		    var eventPosition = Chart.helpers.getRelativePosition(arguments[0], this.chart);
 		    this.clear();

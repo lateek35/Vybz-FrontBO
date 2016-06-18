@@ -39,7 +39,6 @@ module.exports = Backbone.View.extend({
 	},
 
 	showModal: function(){
-		console.log('showModal');
 	 	Tweenlite.to( this.modal, 0.8, { autoAlpha : 1 });
 	},
 

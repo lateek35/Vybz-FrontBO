@@ -1,4 +1,7 @@
 #matchsDetail {
+	.container-img{
+		user-select: none !important;
+	}
 	h2{
 		margin-top: 60px;
 		margin-bottom: 60px;
@@ -16,6 +19,20 @@
 			display: inline-block;
 			vertical-align: inherit;
 		}
+		input{
+			font-size: 12px;
+		    display: inline-block;
+		    padding: 5px;
+		}
+		select{
+			width: 130px;
+		    height: 28px;
+		    appearance: none;
+		    border-radius: 0;
+		    background-color: white;
+		    border: 1px solid #d2d2d2;
+		    padding: 5px;
+		}
 		.sprite{
 			transform: translateY(-25%);
 			margin-right: 10px;
@@ -27,9 +44,38 @@
 	.couv{
 		height: 300px;
 		width: 100%;
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: center;
+		border: 3px dashed grey;
+		box-sizing: border-box;
+		position: relative;
+		cursoir: pointer;
+		input,div{
+			cursoir: pointer;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			width: 100%;
+			height: 100%;
+			transition: opacity .3s ease;
+			&:hover{
+				opacity: 0;
+			}
+		}
+		input{
+			cursoir: pointer;
+			width: 100%;
+			height: 100%;
+			appearance: none;
+			opacity: 0;
+		}
+		p{
+			text-align: center;
+			line-height: 300px;
+			font-size: 30px;
+			color: $clubColor;
+		}
 	}
 	.positions{
 		display:inline-block;
@@ -49,6 +95,11 @@
 			background-repeat: no-repeat;
 			background-color: red;
 			.player {
+				.container-img:hover{
+					.remove-player{
+						display: block;
+					}
+				}
 				position: absolute;
 				top: 35%;
 				left: 20%;
@@ -63,11 +114,17 @@
 				border: 3px dashed #d9d9d9;
 				position: relative;
 				.player {
+					.container-img:hover{
+						.remove-player{
+							display: block;
+						}
+					}
 					display: inline-block;
 					position: relative;
 					width: 33.3%;
 					margin: 0 auto;
-				    margin-top: 10px;
+					float: left;
+				    margin-top: 20px;
     				height: 93px;
 				}
 			}
@@ -136,6 +193,16 @@
 	}
 	.player {
 		position: relative;
+		.remove-player{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			z-index: 2;
+			background-color: $red;
+			opacity: 0.5;
+			cursor: pointer;
+			display:none;
+		}
 		.container-img{
 			position: relative;
 			z-index: 1;

@@ -46,6 +46,7 @@ module.exports = Backbone.View.extend({
 	},
 
 	remove: function(){
+		this.unbindEvents();
 		this.$el.empty(); /* off to unbind the events */
 		this.undelegateEvents();
       	this.stopListening();

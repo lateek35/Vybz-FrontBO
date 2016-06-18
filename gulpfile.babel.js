@@ -112,6 +112,22 @@ gulp.task('images', () => {
     .pipe(gulp.dest('dist/images'));
 });
 
+gulp.task('iconfont', () => {
+  return gulp.src('app/images/svg/**/*')
+  .pipe($.iconfontCss({
+        fontName: 'icons', // nom de la fonte, doit être identique au nom du plugin iconfont
+        targetPath: '../styles/fonts/icons.scss', // emplacement de la css finale
+        fontPath: './../fonts/' // emplacement des fontes finales
+
+      }))
+      .pipe($.iconfont({
+          fontName: 'icons',
+          formats: ['svg', 'woff'],
+          normalize: true
+      }))
+      .pipe(gulp.dest('app/fonts'));
+});
+
 gulp.task('fonts', () => {
   return gulp.src(require('main-bower-files')({
     filter: '**/*.{eot,svg,ttf,woff,woff2}'
@@ -150,7 +166,7 @@ gulp.task('browser-sync', function() {
 gulp.task('clean', del.bind(null, ['dist']));
 
 
-gulp.task('default', ['html', 'styles', 'scripts', 'images', 'fonts', 'extras','browser-sync'], () => {
+gulp.task('default', ['iconfont', 'html', 'styles', 'scripts', 'images', 'fonts', 'extras','browser-sync'], () => {
   gulp.watch('app/images/**/*', ['images']); 
   gulp.watch('app/index.html', ['extras']); 
   gulp.watch('app/styles/**/*.scss', ['styles']);
